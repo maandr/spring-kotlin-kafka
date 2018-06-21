@@ -1,0 +1,13 @@
+server.port: 8090
+spring:
+  application.name: mail-svc
+  kafka:
+    bootstrap-servers: 192.168.99.100:9092
+    consumer:
+      group-id: mail
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      #properties:
+        #spring.json.trusted.packages: "*"
+    listener:
+      ack-mode: MANUAL

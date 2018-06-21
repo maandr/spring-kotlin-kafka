@@ -1,0 +1,4 @@
+rootProject.name = 'mircoservice-spring-kotlin-kafka'
+
+include 'services/mail-svc'
+include 'services/order-svc'

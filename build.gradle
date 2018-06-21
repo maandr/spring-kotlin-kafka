@@ -1,0 +1,22 @@
+buildscript {
+    ext.kotlin_version = "1.2.41"
+    ext.spring_version = "2.0.3.RELEASE"
+
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_version"
+    }
+}
+
+group "maandr.starters"
+version "1.0-SNAPSHOT"
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
