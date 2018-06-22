@@ -17,5 +17,6 @@ class OrderService(
         val order = Order(id = 1001, customer = customer, items = items)
         log.info("created order: $order")
         kafkaTemplate.send("Order", "${order.id}-created", order)
+        log.info("published order: $order.")
     }
 }
