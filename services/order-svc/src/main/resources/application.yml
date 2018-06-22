@@ -5,5 +5,3 @@ spring:
     bootstrap-servers: 192.168.99.100:9092
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-    properties:
-      spring.json.trusted.packages: "maandr.starters"

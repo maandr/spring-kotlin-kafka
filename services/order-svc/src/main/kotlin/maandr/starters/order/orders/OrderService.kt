@@ -1,5 +1,8 @@
 package maandr.starters.order.orders
 
+import maandr.starters.model.Customer
+import maandr.starters.model.LineItem
+import maandr.starters.model.Order
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Service

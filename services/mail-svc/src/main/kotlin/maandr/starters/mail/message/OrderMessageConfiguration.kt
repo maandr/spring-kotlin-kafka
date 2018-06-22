@@ -1,6 +1,6 @@
 package maandr.starters.mail.message
 
-import maandr.starters.mail.orders.Order
+import maandr.starters.model.Order
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.springframework.beans.factory.annotation.Value
@@ -19,6 +19,9 @@ class OrderMessageConfiguration {
     @Value("\${spring.kafka.bootstrap-servers}")
     private lateinit var bootstrapServers: String
 
+    @Value("\${spring.application.name}")
+    private lateinit var groupId: String
+
     @Bean
     fun consumerFactory(): ConsumerFactory<String, Order> =
         DefaultKafkaConsumerFactory(configurationProperties(), StringDeserializer(), JsonDeserializer<Order>(Order::class.java))
@@ -35,7 +38,6 @@ class OrderMessageConfiguration {
             ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG to bootstrapServers,
             ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG to StringDeserializer::class.java,
             ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG to JsonDeserializer::class.java,
-            ConsumerConfig.GROUP_ID_CONFIG to "mail",
-            JsonDeserializer.TRUSTED_PACKAGES to "maandr.starters"
+            ConsumerConfig.GROUP_ID_CONFIG to groupId
         )
 }
